@@ -7,16 +7,19 @@ import { TopbarComponent } from './components/topbar/topbar.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { MatButtonModule } from '@angular/material/button';
+import { LoginComponent } from './pages/login/login.component';
+import { LoginModule } from './pages/login/login.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    TopbarComponent
+    TopbarComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    LoginModule,
     MatButtonModule
   ],
   providers: [],
