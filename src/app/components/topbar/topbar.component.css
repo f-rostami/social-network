@@ -1,0 +1,23 @@
+.nav-container {
+  display: flex;
+  flex-direction: row;
+  width: 100vw;
+  height: 10vh;
+  background-color: #0390bb;
+  color: white;
+  padding: 0;
+  box-shadow: 0 8px 6px -6px rgba(153, 153, 153, 0.836);
+  z-index: 10;
+}
+
+.branding {
+  display: flex;
+  flex-direction: row;
+  width: 50%;
+  align-items: center;
+  font-size: 22px;
+  letter-spacing: 1px;
+  font-weight: 800;
+  padding: 10px;
+  padding-left: 20px;
+}
