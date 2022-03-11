@@ -7,6 +7,11 @@ const routes: Routes = [
     path: 'login',
     loadChildren: () =>
       import('./pages/login/login.module').then(m => m.LoginModule)
+  },
+  {
+    path: 'create-account',
+    loadChildren: () =>
+      import('./pages/create-account/create-account.module').then(m => m.CreateAccountModule)
   }
 ];
 

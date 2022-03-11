@@ -9,6 +9,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule } from '@angular/material/button';
 import { LoginComponent } from './pages/login/login.component';
 import { LoginModule } from './pages/login/login.module';
+import { CreateAccountModule } from './pages/create-account/create-account.module';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { LoginModule } from './pages/login/login.module';
     AppRoutingModule,
     BrowserAnimationsModule,
     LoginModule,
+    CreateAccountModule,
     MatButtonModule
   ],
   providers: [],
