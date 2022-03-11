@@ -1,25 +1,37 @@
 <div class="container">
   <div class="form-container">
     <div class="title">Create Account</div>
-    <form>
+    <form [formGroup]="createAccountForm" (submit)="createAccount()">
       <mat-form-field appearance="outline">
         <mat-label>Enter your email</mat-label>
-        <input type="text" matInput autocomplete="off"/>
+        <input
+          type="text"
+          matInput
+          autocomplete="off"
+          formControlName="email"
+        />
       </mat-form-field>
       <mat-form-field appearance="outline">
         <mat-label>Enter your username</mat-label>
-        <input type="text" matInput autocomplete="off"/>
+        <input
+          type="text"
+          matInput
+          autocomplete="off"
+          formControlName="username"
+        />
       </mat-form-field>
       <mat-form-field appearance="outline">
         <mat-label>Enter your password</mat-label>
-        <input type="password" matInput />
+        <input type="password" matInput formControlName="password" />
       </mat-form-field>
       <div class="buttons-container">
-        <button class="login-button" mat-raised-button>
+        <button class="login-button" mat-raised-button type="submit">
           Create Account
         </button>
         <p>OR</p>
-        <button class="create-button" mat-raised-button>Login</button>
+        <button class="create-button" mat-raised-button routerLink="/login">
+          Login
+        </button>
       </div>
     </form>
   </div>

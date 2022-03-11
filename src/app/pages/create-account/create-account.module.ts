@@ -1,7 +1,10 @@
+import { CreateAccountComponent } from './create-account.component';
+
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { CreateAccountComponent } from './create-account.component';
 import { RouterModule } from '@angular/router';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
@@ -18,9 +21,12 @@ import { MatButtonModule } from '@angular/material/button';
       path: '',
       component: CreateAccountComponent
     }]),
+    ReactiveFormsModule,
+    FormsModule,
     MatFormFieldModule,
     MatInputModule,
-    MatButtonModule
+    MatButtonModule,
+
   ],
   exports: [
     CreateAccountComponent
