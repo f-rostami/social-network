@@ -22,6 +22,7 @@ export class LoginComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    if(this._userSrvc.getLoggedInUser()) this._router.navigate(['/posts'])
     this.loginForm = this._fb.group({
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(6)]]
@@ -38,8 +39,10 @@ export class LoginComponent implements OnInit {
         else {
           if (res[0].password === this.loginForm.value.password) {
             this._snackBar.open('Login successful', 'ok', { duration: 3000 });
-            this._userSrvc.setLoginUser(res);
+            this._userSrvc.setLoginUser(res[0]);
+            // localStorage.setItem('user',JSON.stringify(res[0]))
             this._router.navigate(['/posts']);
+
           } else {
             this._snackBar.open('Account password incorrect', 'ok', { duration: 3000 });
           }

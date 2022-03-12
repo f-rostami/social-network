@@ -32,11 +32,20 @@ export class UserService {
   }
 
   setLoginUser(user: IUser) {
+    localStorage.setItem('user', JSON.stringify(user));
     this.user = user
   }
 
   logout() {
+    localStorage.removeItem('user');
     this.user = undefined;
+  }
+
+  getLoggedInUser() {
+    const userStr = localStorage.getItem('user');
+    if (userStr)
+      this.user = JSON.parse(userStr);
+    return this.user;
   }
 
 

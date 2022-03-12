@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-posts',
@@ -7,9 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PostsComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private _userSrvc: UserService,
+    private _router:Router
+    ) { }
 
   ngOnInit(): void {
+    if (!this._userSrvc.getLoggedInUser()) {
+      this._router.navigate(['/login'])
+    }
   }
 
 }
