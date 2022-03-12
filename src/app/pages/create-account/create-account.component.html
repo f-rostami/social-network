@@ -25,7 +25,12 @@
         <input type="password" matInput formControlName="password" />
       </mat-form-field>
       <div class="buttons-container">
-        <button class="login-button" mat-raised-button type="submit">
+        <button
+          class="login-button"
+          mat-raised-button
+          type="submit"
+          [disabled]="createAccountForm.invalid"
+        >
           Create Account
         </button>
         <p>OR</p>

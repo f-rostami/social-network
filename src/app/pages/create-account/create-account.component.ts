@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-create-account',
@@ -9,7 +10,10 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class CreateAccountComponent implements OnInit {
   createAccountForm: FormGroup;
 
-  constructor(private _fb: FormBuilder) { }
+  constructor(
+    private _fb: FormBuilder,
+    private _userSrvc: UserService
+  ) { }
 
   ngOnInit(): void {
     this.createAccountForm = this._fb.group({
@@ -22,7 +26,9 @@ export class CreateAccountComponent implements OnInit {
 
   createAccount() {
     if (this.createAccountForm.invalid) return;
-    console.log(this.createAccountForm.value)
+    this._userSrvc.createNewUser(this.createAccountForm.value)
+      .then(console.log)
+      .catch(console.log);
   }
 
 }
