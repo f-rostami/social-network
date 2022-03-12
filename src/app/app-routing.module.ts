@@ -17,6 +17,11 @@ const routes: Routes = [
     path: 'create-account',
     loadChildren: () =>
       import('./pages/create-account/create-account.module').then(m => m.CreateAccountModule)
+  },
+  {
+    path: 'posts',
+    loadChildren: () =>
+      import('./pages/posts/posts.module').then(m => m.PostsModule)
   }
 ];
 

@@ -5,6 +5,12 @@
       "email": "user1@test.com",
       "password": "password",
       "id": 1
+    },
+    {
+      "username": "user2",
+      "email": "user2@test.com",
+      "password": "password",
+      "id": 2
     }
   ],
   "posts": []

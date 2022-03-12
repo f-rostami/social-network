@@ -6,6 +6,7 @@ import { IUser } from '../interfaces/user.interface';
   providedIn: 'root'
 })
 export class UserService {
+  private user?: IUser;
 
   constructor(private _http: HttpClient) { }
 
@@ -29,5 +30,15 @@ export class UserService {
         })
     })
   }
+
+  setLoginUser(user: IUser) {
+    this.user = user
+  }
+
+  logout() {
+    this.user = undefined;
+  }
+
+
 
 }

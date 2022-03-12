@@ -8,7 +8,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 
 import { MatButtonModule } from '@angular/material/button';
-import { LoginComponent } from './pages/login/login.component';
+import { MatIconModule } from '@angular/material/icon';
+import { MatMenuModule } from '@angular/material/menu';
 import { LoginModule } from './pages/login/login.module';
 import { CreateAccountModule } from './pages/create-account/create-account.module';
 
@@ -24,6 +25,8 @@ import { CreateAccountModule } from './pages/create-account/create-account.modul
     LoginModule,
     CreateAccountModule,
     MatButtonModule,
+    MatIconModule,
+    MatMenuModule,
     HttpClientModule
   ],
   providers: [],

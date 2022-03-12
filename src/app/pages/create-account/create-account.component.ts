@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { UserService } from 'src/app/services/user.service';
 
 @Component({
@@ -12,7 +13,8 @@ export class CreateAccountComponent implements OnInit {
 
   constructor(
     private _fb: FormBuilder,
-    private _userSrvc: UserService
+    private _userSrvc: UserService,
+    private _router: Router
   ) { }
 
   ngOnInit(): void {
@@ -27,7 +29,10 @@ export class CreateAccountComponent implements OnInit {
   createAccount() {
     if (this.createAccountForm.invalid) return;
     this._userSrvc.createNewUser(this.createAccountForm.value)
-      .then(console.log)
+      .then((res: any) => {
+        this._userSrvc.setLoginUser(res);
+        this._router.navigate(['/posts']);
+      })
       .catch(console.log);
   }
 

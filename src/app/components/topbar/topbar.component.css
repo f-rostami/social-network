@@ -2,7 +2,7 @@
   display: flex;
   flex-direction: row;
   width: 100vw;
-  height: 10vh;
+  height: 8vh;
   background-color: #0390bb;
   color: white;
   padding: 0;
@@ -20,4 +20,13 @@
   font-weight: 800;
   padding: 10px;
   padding-left: 20px;
+}
+
+.account {
+  display: flex;
+  flex-direction: row-reverse;
+  width: 50%;
+  height:100%;
+  align-items: center;
+  padding-right:20px;
 }
