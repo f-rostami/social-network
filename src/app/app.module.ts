@@ -13,6 +13,10 @@ import { MatMenuModule } from '@angular/material/menu';
 import { LoginModule } from './pages/login/login.module';
 import { CreateAccountModule } from './pages/create-account/create-account.module';
 
+import { AngularFireModule } from '@angular/fire/compat';
+import { environment } from 'src/environments/environment';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -27,7 +31,8 @@ import { CreateAccountModule } from './pages/create-account/create-account.modul
     MatButtonModule,
     MatIconModule,
     MatMenuModule,
-    HttpClientModule
+    HttpClientModule,
+    AngularFireModule.initializeApp(environment.firebase)
   ],
   providers: [],
   bootstrap: [AppComponent]
