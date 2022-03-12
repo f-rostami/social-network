@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { IPost } from 'src/app/interfaces/post.interface';
 import { UserService } from 'src/app/services/user.service';
 
 @Component({
@@ -11,13 +12,26 @@ export class PostsComponent implements OnInit {
 
   constructor(
     private _userSrvc: UserService,
-    private _router:Router
-    ) { }
+    private _router: Router
+  ) { }
 
   ngOnInit(): void {
     if (!this._userSrvc.getLoggedInUser()) {
       this._router.navigate(['/login'])
     }
+  }
+
+  postSchema: IPost = {
+    username: '',
+    imageUrl: '',
+    text: '',
+    likes: [],
+    comments: [
+      {
+        username: '',
+        comment: ''
+      }
+    ]
   }
 
 }
