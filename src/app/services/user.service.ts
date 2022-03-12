@@ -19,4 +19,15 @@ export class UserService {
       )
     })
   }
+
+  getUser(email: string) {
+    return new Promise((resolve, reject) => {
+      this._http.get(`http://localhost:3000/users?email=${email}`)
+        .subscribe({
+          next: res => resolve(res),
+          error: err => reject(err)
+        })
+    })
+  }
+
 }

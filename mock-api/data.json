@@ -1,6 +1,11 @@
 {
   "users": [
-
+    {
+      "username": "user1",
+      "email": "user1@test.com",
+      "password": "password",
+      "id": 1
+    }
   ],
   "posts": []
 }
