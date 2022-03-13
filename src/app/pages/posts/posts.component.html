@@ -8,8 +8,17 @@
         placeholder="Say something..."
       ></textarea>
     </mat-form-field>
+
+    <!-- upload image -->
     <div class="new-post-actions-container">
-      <button mat-raised-button  color="primary">Post</button>
+      <button mat-raised-button  color="primary" (click)="newPost()">Post</button>
+
+      <mat-form-field class="image-button">
+        <ngx-mat-file-input class="image-input" #removableInput placeholder="Upload Image" (change)="onFileSelected($event)"></ngx-mat-file-input>
+        <button mat-icon-button matSuffix *ngIf="!removableInput.empty" (click)="removableInput.clear($event)">
+          <mat-icon>clear</mat-icon>
+        </button>
+      </mat-form-field>
     </div>
     <mat-card class="example-card">
       <mat-card-header>

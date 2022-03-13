@@ -9,6 +9,8 @@ import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 
+import { MaterialFileInputModule } from 'ngx-material-file-input';
+
 
 @NgModule({
   declarations: [
@@ -24,7 +26,8 @@ import { MatIconModule } from '@angular/material/icon';
     MatFormFieldModule,
     MatInputModule,
     MatButtonModule,
-    MatIconModule
+    MatIconModule,
+    MaterialFileInputModule
   ],
   exports: [
     PostsComponent
