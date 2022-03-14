@@ -11,6 +11,9 @@ import { MatIconModule } from '@angular/material/icon';
 
 import { MaterialFileInputModule } from 'ngx-material-file-input';
 
+import { AngularFireStorageModule } from '@angular/fire/compat/storage';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
 
 @NgModule({
   declarations: [
@@ -27,7 +30,10 @@ import { MaterialFileInputModule } from 'ngx-material-file-input';
     MatInputModule,
     MatButtonModule,
     MatIconModule,
-    MaterialFileInputModule
+    MaterialFileInputModule,
+    AngularFireStorageModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   exports: [
     PostsComponent

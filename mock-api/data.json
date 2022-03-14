@@ -13,5 +13,30 @@
       "id": 2
     }
   ],
-  "posts": []
+  "posts": [
+    {
+      "username": "user1",
+      "text": "Sample post...",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/sbook-1566d.appspot.com/o/images%2F1647260345434?alt=media&token=c8c03d96-8aab-4794-80d4-6c98f1fa10ce",
+      "likes": [],
+      "comments": [],
+      "id": 1
+    },
+    {
+      "username": "user1",
+      "text": "Say Something, Something calm me down",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/sbook-1566d.appspot.com/o/images%2F1647261595728?alt=media&token=499548b0-392a-498c-b1ea-26a5a3e57e55",
+      "likes": [],
+      "comments": [],
+      "id": 2
+    },
+    {
+      "username": "user2",
+      "text": "One of the best game ever created in video game history.",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/sbook-1566d.appspot.com/o/images%2F1647261677235?alt=media&token=1c2819b4-c4e6-4684-8432-d01be1b8fbb4",
+      "likes": [],
+      "comments": [],
+      "id": 3
+    }
+  ]
 }

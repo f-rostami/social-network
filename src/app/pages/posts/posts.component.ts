@@ -3,6 +3,7 @@ import { AngularFireStorage } from '@angular/fire/compat/storage';
 import { Router } from '@angular/router';
 import { finalize } from 'rxjs';
 import { IPost } from 'src/app/interfaces/post.interface';
+import { PostService } from 'src/app/services/post.service';
 import { UserService } from 'src/app/services/user.service';
 
 @Component({
@@ -13,11 +14,14 @@ import { UserService } from 'src/app/services/user.service';
 export class PostsComponent implements OnInit {
 
   selectedFile: any;
+  postText: string;
+  posts: IPost[] = [];
 
   constructor(
     private _userSrvc: UserService,
     private _router: Router,
-    private _storage: AngularFireStorage
+    private _storage: AngularFireStorage,
+    private _postSrvc: PostService
 
   ) { }
 
@@ -25,6 +29,10 @@ export class PostsComponent implements OnInit {
     if (!this._userSrvc.getLoggedInUser()) {
       this._router.navigate(['/login'])
     }
+
+    this._postSrvc.getPosts()
+      .then((res: any) => this.posts = res)
+      .catch(console.log)
   }
 
   postSchema: IPost = {
@@ -35,7 +43,7 @@ export class PostsComponent implements OnInit {
     comments: [
       {
         username: '',
-        comment: ''
+        content: ''
       }
     ]
   }
@@ -72,7 +80,19 @@ export class PostsComponent implements OnInit {
   newPost() {
     if (this.selectedFile)
       this.uploadImage()
-        .then(imageUrl => console.log(imageUrl))
+        .then((imageUrl: any) => {
+          let postObj: IPost = {
+            username: this._userSrvc.getLoggedInUser()?.username,
+            text: this.postText,
+            imageUrl: imageUrl,
+            likes: [],
+            comments: []
+          };
+          this.posts.push(postObj);
+          this._postSrvc.saveNewPost(postObj)
+            .then(console.log)
+            .catch(console.log)
+        })
         .catch(console.log)
   }
 

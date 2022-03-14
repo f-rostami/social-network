@@ -6,52 +6,57 @@
         cdkTextareaAutosize
         cdAutoSizeMinRows="5"
         placeholder="Say something..."
+        [(ngModel)]="postText"
       ></textarea>
     </mat-form-field>
 
     <!-- upload image -->
     <div class="new-post-actions-container">
-      <button mat-raised-button  color="primary" (click)="newPost()">Post</button>
+      <button mat-raised-button color="primary" (click)="newPost()">
+        Post
+      </button>
 
       <mat-form-field class="image-button">
-        <ngx-mat-file-input class="image-input" #removableInput placeholder="Upload Image" (change)="onFileSelected($event)"></ngx-mat-file-input>
-        <button mat-icon-button matSuffix *ngIf="!removableInput.empty" (click)="removableInput.clear($event)">
+        <ngx-mat-file-input
+          class="image-input"
+          #removableInput
+          placeholder="Upload Image"
+          (change)="onFileSelected($event)"
+        ></ngx-mat-file-input>
+        <button
+          mat-icon-button
+          matSuffix
+          *ngIf="!removableInput.empty"
+          (click)="removableInput.clear($event)"
+        >
           <mat-icon>clear</mat-icon>
         </button>
       </mat-form-field>
     </div>
-    <mat-card class="example-card">
+    <mat-card class="post-card" *ngFor="let post of posts.reverse()">
       <mat-card-header>
-        <div mat-card-avatar class="example-header-image"></div>
-        <mat-card-title>Shiba Inu</mat-card-title>
-        <mat-card-subtitle>Dog Breed</mat-card-subtitle>
+        <mat-card-title>{{ post.username }}</mat-card-title>
       </mat-card-header>
-      <img
-        mat-card-image
-        src="https://material.angular.io/assets/img/examples/shiba2.jpg"
-        alt="Photo of a Shiba Inu"
-      />
+      <img mat-card-image [src]="post.imageUrl" />
       <mat-card-content>
-        <p>Enjoy It!</p>
+        <p>{{ post.text }}</p>
       </mat-card-content>
       <mat-card-actions>
         <button class="like-button" mat-icon-button disableRipple="true">
           <mat-icon>favorite_border</mat-icon>
         </button>
-        <span>10 liked it</span>
+        <span>{{ post.likes.length }} liked it</span>
       </mat-card-actions>
       <div class="comments-container">
         <div class="comments">
-          <div class="title">
-            Comments
-          </div>
-          <p>
-            <b>John:</b> Woow! Loved it!
+          <div class="title">Comments</div>
+          <p *ngFor="let comment of post.comments">
+            <b>{{comment.username}:</b> {{ comment.content }}
           </p>
         </div>
         <div class="comment-input">
           <mat-form-field class="comment-form-field">
-            <input type="text" matInput placeholder="Add a comment">
+            <input type="text" matInput placeholder="Add a comment" />
           </mat-form-field>
           <button class="comment-button" mat-button>Comment</button>
         </div>
