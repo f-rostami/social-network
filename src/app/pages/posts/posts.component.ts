@@ -3,6 +3,7 @@ import { AngularFireStorage } from '@angular/fire/compat/storage';
 import { Router } from '@angular/router';
 import { finalize } from 'rxjs';
 import { IPost } from 'src/app/interfaces/post.interface';
+import { IUser } from 'src/app/interfaces/user.interface';
 import { PostService } from 'src/app/services/post.service';
 import { UserService } from 'src/app/services/user.service';
 
@@ -95,5 +96,35 @@ export class PostsComponent implements OnInit {
         })
         .catch(console.log)
   }
+
+
+
+  // hasLiked(postId){
+  //   const post = this.posts.find(x => x.id === Number(postId));
+  //   const user = this._userSrvc.getLoggedInUser();
+  //   const alreadyLiked = post?.likes.indexOf(user?.id)
+  // }
+
+  likePost(postId: any) {
+    const post = this.posts.find(x => x.id === Number(postId));
+    const user = this._userSrvc.getLoggedInUser();
+    const alreadyLiked = post?.likes.indexOf(user?.id)
+
+    if (user) {
+      if (alreadyLiked == -1) {
+        post?.likes.push(user.id);
+      }
+      else {
+        post?.likes.splice(Number(alreadyLiked), 1);
+      }
+    }
+
+    if (post)
+      this._postSrvc.updatePost(post)
+        .then(console.log)
+        .catch(console.log)
+  }
+
+
 
 }

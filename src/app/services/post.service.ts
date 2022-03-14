@@ -33,4 +33,16 @@ export class PostService {
     )
   }
 
+  updatePost(postObj: IPost) {
+    return new Promise(
+      (resolve, reject) => {
+        this._httpClient.put(`http://localhost:3000/posts/${postObj.id}`, postObj)
+          .subscribe({
+            next: res => resolve(res),
+            error: err => reject(err)
+          })
+      }
+    )
+  }
+
 }

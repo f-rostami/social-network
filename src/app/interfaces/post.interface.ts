@@ -1,9 +1,10 @@
 import { IComment } from "./comment.interface";
 
 export interface IPost {
+  id?: number,
   username?: string,
   imageUrl: string,
   text: string,
-  likes: [],
+  likes: any[],
   comments: IComment[]
 }

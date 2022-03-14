@@ -18,7 +18,9 @@
       "username": "user1",
       "text": "Sample post...",
       "imageUrl": "https://firebasestorage.googleapis.com/v0/b/sbook-1566d.appspot.com/o/images%2F1647260345434?alt=media&token=c8c03d96-8aab-4794-80d4-6c98f1fa10ce",
-      "likes": [],
+      "likes": [
+        1
+      ],
       "comments": [],
       "id": 1
     },

@@ -42,7 +42,13 @@
         <p>{{ post.text }}</p>
       </mat-card-content>
       <mat-card-actions>
-        <button class="like-button" mat-icon-button disableRipple="true">
+        <button
+          class="like-button"
+          mat-icon-button
+          disableRipple="true"
+          (click)="likePost(post.id)"
+        >
+        <!-- {{ hasLiked ? "favorite" : "favorite_border" }} -->
           <mat-icon>favorite_border</mat-icon>
         </button>
         <span>{{ post.likes.length }} liked it</span>
