@@ -21,7 +21,12 @@
       "likes": [
         1
       ],
-      "comments": [],
+      "comments": [
+        {
+          "username": "user2",
+          "content": "this one don't have comment at all"
+        }
+      ],
       "id": 1
     },
     {
@@ -37,7 +42,16 @@
       "text": "One of the best game ever created in video game history.",
       "imageUrl": "https://firebasestorage.googleapis.com/v0/b/sbook-1566d.appspot.com/o/images%2F1647261677235?alt=media&token=1c2819b4-c4e6-4684-8432-d01be1b8fbb4",
       "likes": [],
-      "comments": [],
+      "comments": [
+        {
+          "username": "user1",
+          "content": "test"
+        },
+        {
+          "username": "user2",
+          "content": "this is another sample comment"
+        }
+      ],
       "id": 3
     }
   ]

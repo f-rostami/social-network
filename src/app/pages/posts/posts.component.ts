@@ -17,6 +17,7 @@ export class PostsComponent implements OnInit {
   selectedFile: any;
   postText: string;
   posts: IPost[] = [];
+  commentText: string[] = [];
 
   constructor(
     private _userSrvc: UserService,
@@ -98,13 +99,6 @@ export class PostsComponent implements OnInit {
   }
 
 
-
-  // hasLiked(postId){
-  //   const post = this.posts.find(x => x.id === Number(postId));
-  //   const user = this._userSrvc.getLoggedInUser();
-  //   const alreadyLiked = post?.likes.indexOf(user?.id)
-  // }
-
   likePost(postId: any) {
     const post = this.posts.find(x => x.id === Number(postId));
     const user = this._userSrvc.getLoggedInUser();
@@ -125,6 +119,18 @@ export class PostsComponent implements OnInit {
         .catch(console.log)
   }
 
+  comment(postId: any, i: any) {
+    const post = this.posts.find(x => x.id === Number(postId));
+    if (post) {
+      post.comments.push({
+        username: this._userSrvc.getLoggedInUser()?.username,
+        content: this.commentText[i]
+      });
+      this.commentText[i] = '';
+      this._postSrvc.updatePost(post);
+    }
+
+  }
 
 
 }
